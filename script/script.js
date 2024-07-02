@@ -7,12 +7,6 @@ var Owin = 0;
 
 for(var  i=0; i<Box.length; i++){
     Box[i].addEventListener("click", (e)=>{
-        count++;
-
-        if(count>10){
-            alert("Maximum spaces occupied!!");
-        }
-
         var box = e.target;
         var row = box.getAttribute("id")[0];
         var col = box.getAttribute("id")[1];
@@ -20,6 +14,7 @@ for(var  i=0; i<Box.length; i++){
             if(boxData[row][col]==""){
                 box.innerHTML = "X";
                 boxData[row][col] = "X";
+                count++;
             }
             else{
                 alert("Already occupied! try other spaces");
@@ -29,12 +24,15 @@ for(var  i=0; i<Box.length; i++){
             if(boxData[row][col]==""){
                 box.innerHTML = "O";
                 boxData[row][col] = "O";
+                count++;
             }else{
                 alert("Already occupied! try other spaces");
             }
         }
         checkWinner();
-        console.log(boxData);  
+        if(count==9){
+            setTimeout(removeData(),2000);
+        } 
     })
 }
 
@@ -105,7 +103,7 @@ function reset(){
     }
     document.getElementsByTagName("output")[0].innerHTML = null
     document.getElementsByTagName("output")[0].style.display = "none";
-    document.getElementsByTagName("output")[0].style.scale = "1.5";
+    document.getElementsByTagName("output")[0].style.scale = "0";
     document.querySelector("#Xwin").innerHTML = Xwin;
     document.querySelector("#Owin").innerHTML = Owin;
 }

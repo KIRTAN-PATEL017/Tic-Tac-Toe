@@ -39,7 +39,7 @@ body{
 }
 
 output{
-    height: 100px;
+    height: 80px;
     width: 400px;
     background-color: darkorange;
     display: none;
@@ -48,11 +48,10 @@ output{
     font-size: x-large;
     font-family: "Poppins";
     font-weight: 500;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 #reset{
     width: 80px;
